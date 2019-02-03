@@ -47,21 +47,28 @@ var elementToObserve = document.getElementsByClassName("ipo-Competition ipo-Comp
 // console.log(elementToObserve);
 var statsHtmlElement = document.getElementsByClassName("ipo-MainMarkets ");
 var oddsSpan = document.getElementsByClassName("gl-ParticipantCentered_Odds");
-const maxOddTrigger = 26.00;
-
+var maxOddTrigger = 26.00;
+var counter =0;
 var observer = new MutationObserver(function (mutations) { // <- It always detects changes
     mutations.forEach(function (mutation) {
-        console.log(mutation);
+       // console.log(mutation);
         for (let i = 0; i < statsHtmlElement.length; i++) {
             //console.log(statsHtmlElement[i]);   
             for (let y = 0; y < statsHtmlElement[i].childNodes.length - 1; y++) {
                 // console.log(statsHtmlElement[i].childNodes[y].childNodes);
 
                 statsHtmlElement[i].childNodes[y].childNodes.forEach(el => {
+                    counter++;
                     if (el.childNodes[1] != undefined) {
                         if (Number.parseFloat(el.childNodes[1].innerText) >= maxOddTrigger) {
+                            // if (document.getElementsByClassName("ipo-FixtureEventCountButton_FavouriteButton ")[i].style.color) {
+                                var ss = document.getElementsByClassName("ipo-FixtureEventCountButton_FavouriteButton ")[i];
+                                console.log(window.getComputedStyle(ss).color);
+                            // }
+                            
+                            document.getElementsByClassName("ipo-FixtureEventCountButton_FavouriteButton ")[i].click();
                             //statsHtmlElement[i].childNodes[y].scrollIntoView({block: "end"});
-                            el.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest"});
+                           // el.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest"});
                             el.style = "background-color: red !important;"
 
                             //console.log(el.childNodes);
@@ -69,7 +76,7 @@ var observer = new MutationObserver(function (mutations) { // <- It always detec
                            // alert(el.childNodes[0].innerText);
                         }
                         else {
-                            el.removeAttribute("background-color: #666 !important;");
+                            el.removeAttribute("background-color: red !important;");
                         }
                     }
                 });

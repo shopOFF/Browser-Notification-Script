@@ -49,6 +49,7 @@ var statsHtmlElement = document.getElementsByClassName("ipo-MainMarkets ");
 var oddsSpan = document.getElementsByClassName("gl-ParticipantCentered_Odds");
 var maxOddTrigger = 26.00;
 var counter = 0;
+
 var observer = new MutationObserver(function (mutations) { // <- It always detects changes
     mutations.forEach(function (mutation) {
        // console.log(mutation);

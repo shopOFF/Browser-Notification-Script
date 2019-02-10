@@ -3,6 +3,7 @@ var elementToObserve = document.getElementsByClassName("ipo-Competition ipo-Comp
 var statsHtmlElement = document.getElementsByClassName("ipo-MainMarkets ");
 var oddsSpan = document.getElementsByClassName("gl-ParticipantCentered_Odds");
 var counter = 0;
+
 var observer = new MutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {
         for (let i = 0; i < statsHtmlElement.length; i++) {

@@ -48,7 +48,7 @@ var elementToObserve = document.getElementsByClassName("ipo-Competition ipo-Comp
 var statsHtmlElement = document.getElementsByClassName("ipo-MainMarkets ");
 var oddsSpan = document.getElementsByClassName("gl-ParticipantCentered_Odds");
 var maxOddTrigger = 26.00;
-var counter =0;
+var counter = 0;
 var observer = new MutationObserver(function (mutations) { // <- It always detects changes
     mutations.forEach(function (mutation) {
        // console.log(mutation);
@@ -70,7 +70,7 @@ var observer = new MutationObserver(function (mutations) { // <- It always detec
                             //statsHtmlElement[i].childNodes[y].scrollIntoView({block: "end"});
                            // el.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest"});
                             el.style = "background-color: red !important;"
-
+                            el.style.cssText = null
                             //console.log(el.childNodes);
                             console.log(el.childNodes[1].innerText);
                            // alert(el.childNodes[0].innerText);
